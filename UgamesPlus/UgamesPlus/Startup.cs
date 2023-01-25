@@ -39,6 +39,9 @@ namespace UgamesPlus
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UgamesPlus", Version = "v1" });
             });
 
+            //Versioning API
+            services.AddApiVersioning();
+
             //Injeção de Dependencias
 
             services.AddScoped<IGeneroBusiness, GeneroBusinessImplementation>();

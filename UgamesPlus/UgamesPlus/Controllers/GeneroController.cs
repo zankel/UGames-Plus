@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace RestWithASPNETUdemy.Controllers
 {
 
-    //[ApiVersion("1")]
+    [ApiVersion("1")]
     [ApiController]
     //[Authorize("Bearer")]
     [Route("api/[controller]")]
