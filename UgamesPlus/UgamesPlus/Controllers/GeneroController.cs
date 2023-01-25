@@ -10,7 +10,7 @@ namespace RestWithASPNETUdemy.Controllers
 
     [ApiVersion("1")]
     [ApiController]
-    //[Authorize("Bearer")]
+    [Authorize("Bearer")]
     [Route("api/[controller]")]
     public class GeneroController : ControllerBase
     {

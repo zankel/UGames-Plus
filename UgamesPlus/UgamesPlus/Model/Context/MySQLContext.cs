@@ -13,9 +13,9 @@ namespace RestWithASPNETUdemy.Model.Context
 
         public DbSet<Genero> Generos { get; set; }
         public DbSet<Jogo> Jogos { get; set; }
-        public DbSet<Post> Post { get; set; }
-        public DbSet<Tipo> Tipo { get; set; }
-        public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Tipo> Tipos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
     }
 }
