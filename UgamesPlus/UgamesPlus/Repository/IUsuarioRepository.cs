@@ -1,7 +1,7 @@
-﻿using RestWithASPNETUdemy.Data.VO;
-using RestWithASPNETUdemy.Model;
+﻿using UgamesPlus.Data.VO;
+using UgamesPlus.Model;
 
-namespace RestWithASPNETUdemy.Repository
+namespace UgamesPlus.Repository
 {
     public interface IUsuarioRepository
     {

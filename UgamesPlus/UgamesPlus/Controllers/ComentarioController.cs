@@ -12,78 +12,78 @@ namespace UgamesPlus.Controllers
     [ApiController]
     [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class PostController : ControllerBase
+    public class ComentarioController : ControllerBase
     {
 
-        private readonly ILogger<PostController> _logger;
+        private readonly ILogger<ComentarioController> _logger;
 
         // Declaration of the service used
-        private IPostBusiness _postBusiness;
+        private IComentarioBusiness _comentarioBusiness;
 
-        // Injection of an instance of IPostService
-        // when creating an instance of PostController
-        public PostController(ILogger<PostController> logger, IPostBusiness postBusiness)
+        // Injection of an instance of IComentarioService
+        // when creating an instance of ComentarioController
+        public ComentarioController(ILogger<ComentarioController> logger, IComentarioBusiness comentarioBusiness)
         {
             _logger = logger;
-            _postBusiness = postBusiness;
+            _comentarioBusiness = comentarioBusiness;
         }
 
-        // Maps GET requests to https://localhost:{port}/api/Post
+        // Maps GET requests to https://localhost:{port}/api/Comentario
         // Get no parameters for FindAll -> Search All
         [HttpGet]
-        [ProducesResponseType((200), Type = typeof(List<PostVO>))]
+        [ProducesResponseType((200), Type = typeof(List<ComentarioVO>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         //[TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
-            return Ok(_postBusiness.FindAll());
+            return Ok(_comentarioBusiness.FindAll());
         }
 
-        // Maps GET requests to https://localhost:{port}/api/Post/{id}
+        // Maps GET requests to https://localhost:{port}/api/Comentario/{id}
         // receiving an ID as in the Request Path
         // Get with parameters for FindById -> Search by ID
         [HttpGet("{id}")]
-        [ProducesResponseType((200), Type = typeof(PostVO))]
+        [ProducesResponseType((200), Type = typeof(ComentarioVO))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         //[TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
-            var Post = _postBusiness.FindByID(id);
-            if (Post == null) return NotFound();
-            return Ok(Post);
+            var comentario = _comentarioBusiness.FindByID(id);
+            if (comentario == null) return NotFound();
+            return Ok(comentario);
         }
 
-        // Maps POST requests to https://localhost:{port}/api/Post/
+        // Maps Comentario requests to https://localhost:{port}/api/Comentario/
         // [FromBody] consumes the JSON object sent in the request body
         [HttpPost]
-        [ProducesResponseType((200), Type = typeof(PostVO))]
+        [ProducesResponseType((200), Type = typeof(ComentarioVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         //[TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Post([FromBody] PostVO post)
+        public IActionResult Post([FromBody] ComentarioVO comentario)
         {
-            if (post == null) return BadRequest();
-            return Ok(_postBusiness.Create(post));
+            if (comentario == null) return BadRequest();
+            return Ok(_comentarioBusiness.Create(comentario));
         }
 
-        // Maps PUT requests to https://localhost:{port}/api/Post/
+        // Maps PUT requests to https://localhost:{port}/api/Comentario/
         // [FromBody] consumes the JSON object sent in the request body
         [HttpPut]
-        [ProducesResponseType((200), Type = typeof(PostVO))]
+        [ProducesResponseType((200), Type = typeof(ComentarioVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         //[TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Put([FromBody] PostVO post)
+        public IActionResult Put([FromBody] ComentarioVO comentario)
         {
-            if (post == null) return BadRequest();
-            return Ok(_postBusiness.Update(post));
+            if (comentario == null) return BadRequest();
+            return Ok(_comentarioBusiness.Update(comentario));
         }
 
-        // Maps DELETE requests to https://localhost:{port}/api/Post/{id}
+        // Maps DELETE requests to https://localhost:{port}/api/Comentario/{id}
         // receiving an ID as in the Request Path
         [HttpDelete("{id}")]
         [ProducesResponseType(204)]
@@ -91,7 +91,7 @@ namespace UgamesPlus.Controllers
         [ProducesResponseType(401)]
         public IActionResult Delete(long id)
         {
-            _postBusiness.Delete(id);
+            _comentarioBusiness.Delete(id);
             return NoContent();
         }
     }

@@ -1,8 +1,8 @@
-﻿using RestWithASPNETUdemy.Model;
-using RestWithASPNETUdemy.Model.Base;
+﻿using UgamesPlus.Model;
+using UgamesPlus.Model.Base;
 using System.Collections.Generic;
 
-namespace RestWithASPNETUdemy.Repository
+namespace UgamesPlus.Repository
 {
     public interface IRepository<T> where T : BaseEntity
     {

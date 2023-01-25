@@ -1,6 +1,6 @@
-﻿using RestWithASPNETUdemy.Data.VO;
+﻿using UgamesPlus.Data.VO;
 
-namespace RestWithASPNETUdemy.Business
+namespace UgamesPlus.Business
 {
     public interface ILoginBusiness
     {

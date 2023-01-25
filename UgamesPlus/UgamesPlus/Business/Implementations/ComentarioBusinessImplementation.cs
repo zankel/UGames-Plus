@@ -6,33 +6,33 @@ using System.Collections.Generic;
 
 namespace UgamesPlus.Business.Implementations
 {
-    public class PostBusinessImplementation : IPostBusiness
+    public class ComentarioBusinessImplementation : IComentarioBusiness
     {
 
-        private readonly IRepository<Post> _repository;
+        private readonly IRepository<Comentario> _repository;
 
-        private readonly PostConverter _converter;
+        private readonly ComentarioConverter _converter;
 
-        public PostBusinessImplementation(IRepository<Post> repository)
+        public ComentarioBusinessImplementation(IRepository<Comentario> repository)
         {
             _repository = repository;
-            _converter = new PostConverter();
+            _converter = new ComentarioConverter();
         }
 
         // Method responsible for returning all people,
-        public List<PostVO> FindAll()
+        public List<ComentarioVO> FindAll()
         {
             return _converter.Parse(_repository.FindAll());
         }
 
         // Method responsible for returning one person by ID
-        public PostVO FindByID(long id)
+        public ComentarioVO FindByID(long id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }
 
         // Method responsible to crete one new person
-        public PostVO Create(PostVO person)
+        public ComentarioVO Create(ComentarioVO person)
         {
             var personEntity = _converter.Parse(person);
             personEntity = _repository.Create(personEntity);
@@ -40,7 +40,7 @@ namespace UgamesPlus.Business.Implementations
         }
 
         // Method responsible for updating one person
-        public PostVO Update(PostVO person)
+        public ComentarioVO Update(ComentarioVO person)
         {
             var personEntity = _converter.Parse(person);
             personEntity = _repository.Update(personEntity);

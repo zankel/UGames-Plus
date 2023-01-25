@@ -13,14 +13,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using RestWithASPNETUdemy.Business;
-using RestWithASPNETUdemy.Business.Implementations;
-using RestWithASPNETUdemy.Configurations;
-using RestWithASPNETUdemy.Model.Context;
-using RestWithASPNETUdemy.Repository;
-using RestWithASPNETUdemy.Repository.Generic;
-using RestWithASPNETUdemy.Services;
-using RestWithASPNETUdemy.Services.Implementations;
+using UgamesPlus.Business;
+using UgamesPlus.Business.Implementations;
+using UgamesPlus.Configurations;
+using UgamesPlus.Model.Context;
+using UgamesPlus.Repository;
+using UgamesPlus.Repository.Generic;
+using UgamesPlus.Services;
+using UgamesPlus.Services.Implementations;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -104,6 +104,7 @@ namespace UgamesPlus
 
             services.AddScoped<IPostBusiness, PostBusinessImplementation>();
             services.AddScoped<ILoginBusiness, LoginBusinessImplementation>();
+            services.AddScoped<IComentarioBusiness, ComentarioBusinessImplementation>();
 
             services.AddTransient<ITokenService, TokenService>();
 

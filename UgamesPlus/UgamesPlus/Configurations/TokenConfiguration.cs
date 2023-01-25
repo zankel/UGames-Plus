@@ -1,4 +1,4 @@
-﻿namespace RestWithASPNETUdemy.Configurations
+﻿namespace UgamesPlus.Configurations
 {
     public class TokenConfiguration
     {

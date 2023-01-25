@@ -1,13 +1,13 @@
 ﻿using Microsoft.IdentityModel.JsonWebTokens;
-using RestWithASPNETUdemy.Configurations;
-using RestWithASPNETUdemy.Data.VO;
-using RestWithASPNETUdemy.Repository;
-using RestWithASPNETUdemy.Services;
+using UgamesPlus.Configurations;
+using UgamesPlus.Data.VO;
+using UgamesPlus.Repository;
+using UgamesPlus.Services;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace RestWithASPNETUdemy.Business.Implementations
+namespace UgamesPlus.Business.Implementations
 {
     public class LoginBusinessImplementation : ILoginBusiness
     {

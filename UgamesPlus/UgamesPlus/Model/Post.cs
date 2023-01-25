@@ -1,15 +1,11 @@
-﻿using RestWithASPNETUdemy.Model.Base;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using UgamesPlus.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestWithASPNETUdemy.Model
+namespace UgamesPlus.Model
 {
     [Table("post")]
     public class Post : BaseEntity 
     {
-
-
         [Column("conteudo")]
         public string Conteudo { get; set; }
 
@@ -24,7 +20,5 @@ namespace RestWithASPNETUdemy.Model
         [ForeignKey("Jogo")]
         public long Id_Jogo { get; set; }
         public Jogo Jogo { get; set; }
-
     }
-
 }

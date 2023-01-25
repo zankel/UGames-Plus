@@ -2,12 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestWithASPNETUdemy.Model
+namespace UgamesPlus.Model
 {
     [Table("usuario")]
     public class Usuario 
     {
-
         [Key]
         [Column("id")]
         public long Id { get; set; }
@@ -25,7 +24,5 @@ namespace RestWithASPNETUdemy.Model
         public DateTime RefreshTokenExpiryTime { get; set; }
 
         public Post post { get; set; }
-
     }
-
 }

@@ -1,12 +1,12 @@
-﻿using RestWithASPNETUdemy.Data.VO;
-using RestWithASPNETUdemy.Model;
-using RestWithASPNETUdemy.Model.Context;
+﻿using UgamesPlus.Data.VO;
+using UgamesPlus.Model;
+using UgamesPlus.Model.Context;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace RestWithASPNETUdemy.Repository
+namespace UgamesPlus.Repository
 {
     public class UsuarioRepository : IUsuarioRepository
     {

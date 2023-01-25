@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace RestWithASPNETUdemy.Services
+namespace UgamesPlus.Services
 {
     public interface ITokenService
     {

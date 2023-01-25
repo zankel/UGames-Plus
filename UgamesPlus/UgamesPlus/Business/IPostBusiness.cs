@@ -1,14 +1,14 @@
-﻿using RestWithASPNETUdemy.Data.VO;
+﻿using UgamesPlus.Data.VO;
 using System.Collections.Generic;
 
-namespace RestWithASPNETUdemy.Business
+namespace UgamesPlus.Business
 {
     public interface IPostBusiness
     {
-        PostVO Create(PostVO Post);
+        PostVO Create(PostVO post);
         PostVO FindByID(long id);
         List<PostVO> FindAll();
-        PostVO Update(PostVO Post);
+        PostVO Update(PostVO post);
         void Delete(long id);
     }
 }
