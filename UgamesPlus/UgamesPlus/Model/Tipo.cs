@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestWithASPNETUdemy.Model
 {
-    [Table("jogo")]
-    public class Jogo : BaseEntity
+    [Table("tipo")]
+    public class Tipo : BaseEntity
     {
 
-        [Column("nome")]
-        public string Nome { get; set; }
+        [Column("descritivo")]
+        public string Descritivo { get; set; }
 
         public Post post { get; set; }
 

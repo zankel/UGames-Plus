@@ -43,7 +43,7 @@ namespace UgamesPlus
 
             services.AddScoped<IGeneroBusiness, GeneroBusinessImplementation>();
             services.AddScoped<IJogoBusiness, JogoBusinessImplementation>();
-
+            services.AddScoped<IPostBusiness, PostBusinessImplementation>();
 
             services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
