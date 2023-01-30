@@ -25,29 +25,29 @@ namespace UgamesPlus.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        // Method responsible for returning one person by ID
+        // Method responsible for returning one post by ID
         public PostVO FindByID(long id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }
 
-        // Method responsible to crete one new person
-        public PostVO Create(PostVO person)
+        // Method responsible to crete one new post
+        public PostVO Create(PostVO post)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Create(personEntity);
-            return _converter.Parse(personEntity);
+            var postEntity = _converter.Parse(post);
+            postEntity = _repository.Create(postEntity);
+            return _converter.Parse(postEntity);
         }
 
-        // Method responsible for updating one person
-        public PostVO Update(PostVO person)
+        // Method responsible for updating one post
+        public PostVO Update(PostVO post)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Update(personEntity);
-            return _converter.Parse(personEntity);
+            var postEntity = _converter.Parse(post);
+            postEntity = _repository.Update(postEntity);
+            return _converter.Parse(postEntity);
         }
 
-        // Method responsible for deleting a person from an ID
+        // Method responsible for deleting a post from an ID
         public void Delete(long id)
         {
             _repository.Delete(id);

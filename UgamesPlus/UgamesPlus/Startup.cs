@@ -25,6 +25,8 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UgamesPlus.Hypermedia.Enricher;
+using UgamesPlus.Hypermedia.Filters;
 
 namespace UgamesPlus
 {
@@ -96,6 +98,15 @@ namespace UgamesPlus
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UgamesPlus", Version = "v1" });
             });
 
+
+            var filterOptions = new HyperMediaFilterOptions();
+
+            filterOptions.ContentResponseEnricherList.Add(new PostEnricher());
+            filterOptions.ContentResponseEnricherList.Add(new ComentarioEnricher());
+
+            services.AddSingleton(filterOptions);
+
+
             //Versioning API
             services.AddApiVersioning();
 
@@ -133,6 +144,7 @@ namespace UgamesPlus
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
             });
         }
 

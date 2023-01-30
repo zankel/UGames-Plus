@@ -25,6 +25,7 @@ namespace UgamesPlus.Data.Converter.Implementations
             if (origin == null) return null;
             return new ComentarioVO
             {
+                Id = origin.Id,
                 Descritivo = origin.Descritivo,
                 Id_Usuario = origin.Id_Usuario,
                 Id_Post = origin.Id_Post

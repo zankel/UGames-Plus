@@ -25,29 +25,29 @@ namespace UgamesPlus.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
-        // Method responsible for returning one person by ID
+        // Method responsible for returning one comentario by ID
         public ComentarioVO FindByID(long id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }
 
-        // Method responsible to crete one new person
-        public ComentarioVO Create(ComentarioVO person)
+        // Method responsible to crete one new comentario
+        public ComentarioVO Create(ComentarioVO comentario)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Create(personEntity);
-            return _converter.Parse(personEntity);
+            var comentarioEntity = _converter.Parse(comentario);
+            comentarioEntity = _repository.Create(comentarioEntity);
+            return _converter.Parse(comentarioEntity);
         }
 
-        // Method responsible for updating one person
-        public ComentarioVO Update(ComentarioVO person)
+        // Method responsible for updating one comentario
+        public ComentarioVO Update(ComentarioVO comentario)
         {
-            var personEntity = _converter.Parse(person);
-            personEntity = _repository.Update(personEntity);
-            return _converter.Parse(personEntity);
+            var comentarioEntity = _converter.Parse(comentario);
+            comentarioEntity = _repository.Update(comentarioEntity);
+            return _converter.Parse(comentarioEntity);
         }
 
-        // Method responsible for deleting a person from an ID
+        // Method responsible for deleting a comentario from an ID
         public void Delete(long id)
         {
             _repository.Delete(id);

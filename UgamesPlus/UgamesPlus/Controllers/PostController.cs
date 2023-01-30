@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using UgamesPlus.Business;
 using UgamesPlus.Data.VO;
 using System.Collections.Generic;
+using UgamesPlus.Hypermedia.Filters;
 
 namespace UgamesPlus.Controllers
 {
@@ -35,7 +36,7 @@ namespace UgamesPlus.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        //[TypeFilter(typeof(HyperMediaFilter))]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
             return Ok(_postBusiness.FindAll());
@@ -49,7 +50,7 @@ namespace UgamesPlus.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        //[TypeFilter(typeof(HyperMediaFilter))]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(long id)
         {
             var Post = _postBusiness.FindByID(id);
@@ -63,7 +64,7 @@ namespace UgamesPlus.Controllers
         [ProducesResponseType((200), Type = typeof(PostVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        //[TypeFilter(typeof(HyperMediaFilter))]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PostVO post)
         {
             if (post == null) return BadRequest();
@@ -76,7 +77,7 @@ namespace UgamesPlus.Controllers
         [ProducesResponseType((200), Type = typeof(PostVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
-        //[TypeFilter(typeof(HyperMediaFilter))]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PostVO post)
         {
             if (post == null) return BadRequest();

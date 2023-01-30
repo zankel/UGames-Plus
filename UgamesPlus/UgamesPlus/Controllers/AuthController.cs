@@ -54,5 +54,16 @@ namespace UgamesPlus.Controllers
             if (!result) return BadRequest("Ivalid client request");
             return NoContent();
         }
+
+        [HttpPost]
+        [ProducesResponseType((200), Type = typeof(UsuarioVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+       
+        public IActionResult Post([FromBody] UsuarioVO usuario)
+        {
+            if (usuario == null) return BadRequest();
+            return Ok(_loginBusiness.Create(usuario));
+        }
     }
 }

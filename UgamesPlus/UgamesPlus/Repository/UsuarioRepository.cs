@@ -58,6 +58,23 @@ namespace UgamesPlus.Repository
             return result;
         }
 
+        public Usuario Create(Usuario usuario)
+        {
+            try
+            {
+                var pass = ComputeHash(usuario.Password, new SHA256CryptoServiceProvider());
+                usuario.Password = pass;
+
+                _context.Add(usuario);
+                _context.SaveChanges();
+                return usuario;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         private string ComputeHash(string input, SHA256CryptoServiceProvider algorithm)
         {
             Byte[] inputBytes = Encoding.UTF8.GetBytes(input);

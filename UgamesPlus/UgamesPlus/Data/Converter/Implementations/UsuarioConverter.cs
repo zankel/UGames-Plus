@@ -6,41 +6,39 @@ using System.Linq;
 
 namespace UgamesPlus.Data.Converter.Implementations
 {
-    public class PostConverter : IParser<PostVO, Post>, IParser<Post, PostVO>
+    public class UsuarioConverter : IParser<UsuarioVO, Usuario>, IParser<Usuario, UsuarioVO>
     {
-        public Post Parse(PostVO origin)
+        public Usuario Parse(UsuarioVO origin)
         {
             if (origin == null) return null;
-            return new Post
+            return new Usuario
             {
                 Id = origin.Id,
-                Conteudo = origin.Conteudo,
-                Id_Tipo = origin.Id_Tipo,
-                Id_Usuario = origin.Id_Usuario,
-                Id_Jogo = origin.Id_Jogo
+                Password = origin.Password,
+                UserName = origin.UserName,
+
             };
         }
 
-        public PostVO Parse(Post origin)
+        public UsuarioVO Parse(Usuario origin)
         {
             if (origin == null) return null;
-            return new PostVO
+            return new UsuarioVO
             {
                 Id = origin.Id,
-                Conteudo = origin.Conteudo,
-                Id_Tipo = origin.Id_Tipo,
-                Id_Usuario = origin.Id_Usuario,
-                Id_Jogo = origin.Id_Jogo
+                Password = origin.Password,
+                UserName = origin.UserName,
+
             };
         }
 
-        public List<Post> Parse(List<PostVO> origin)
+        public List<Usuario> Parse(List<UsuarioVO> origin)
         {
             if (origin == null) return null;
             return origin.Select(item => Parse(item)).ToList();
         }
 
-        public List<PostVO> Parse(List<Post> origin)
+        public List<UsuarioVO> Parse(List<Usuario> origin)
         {
             if (origin == null) return null;
             return origin.Select(item => Parse(item)).ToList();

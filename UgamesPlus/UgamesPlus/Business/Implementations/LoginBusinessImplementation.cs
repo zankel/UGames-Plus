@@ -6,6 +6,7 @@ using UgamesPlus.Services;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using UgamesPlus.Data.Converter.Implementations;
 
 namespace UgamesPlus.Business.Implementations
 {
@@ -16,12 +17,15 @@ namespace UgamesPlus.Business.Implementations
 
         private IUsuarioRepository _repository;
         private readonly ITokenService _tokenService;
+        private readonly UsuarioConverter _converter;
+
 
         public LoginBusinessImplementation(TokenConfiguration configuration, IUsuarioRepository repository, ITokenService tokenService)
         {
             _configuration = configuration;
             _repository = repository;
             _tokenService = tokenService;
+            _converter = new UsuarioConverter();
         }
 
         public TokenVO ValidateCredentials(UsuarioVO userCredentials)
@@ -86,6 +90,13 @@ namespace UgamesPlus.Business.Implementations
                 accessToken,
                 refreshToken
                 );
+        }
+
+        public UsuarioVO Create(UsuarioVO usuario)
+        {
+            var usuarioEntity = _converter.Parse(usuario);
+            usuarioEntity = _repository.Create(usuarioEntity);
+            return _converter.Parse(usuarioEntity);
         }
 
         public bool RevokeToken(string userName)

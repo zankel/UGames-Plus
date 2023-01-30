@@ -12,5 +12,7 @@ namespace UgamesPlus.Repository
         bool RevokeToken(string username);
 
         Usuario RefreshUserInfo(Usuario usuario);
+
+        Usuario Create(Usuario usuario);
     }
 }
